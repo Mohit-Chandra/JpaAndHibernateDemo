@@ -1,6 +1,7 @@
 package com.mohit.jpa.JpaAndHibDemo.com.mohit.jpa.JpaAndHibDemo.repository;
 
 import com.mohit.jpa.JpaAndHibDemo.com.mohit.jpa.JpaAndHibDemo.Entity.Course;
+import com.mohit.jpa.JpaAndHibDemo.com.mohit.jpa.JpaAndHibDemo.Entity.Review;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
+import java.util.List;
 
 
 @Transactional
@@ -40,11 +42,23 @@ public class CourseRepo {
         logger.info("PlaywithEm start");
         Course course1 = new Course("Java");
         entityManager.persist(course1);
-        course1.setName("Java EE");
 
-        Course course2 = new Course("Angular Js");
-        entityManager.persist(course2);
-        course2.setName("Angular  js updated");
+        Course course2 = findById(10002L);
+        course2.setName("JPA");
 
     }
+
+    public void addReviewForCourse(Long courseId,List<Review> reviewList) {
+
+        //Get the course 10003L
+        //add Review for it
+        //Save to db
+        Course course = findById(courseId);
+        logger.info("List of reviews -{}",course.getReviews());
+        for(Review review:reviewList) {
+            course.addReview(review);
+            review.setCourse(course);
+            entityManager.persist(review);
+        }
+      }
 }
