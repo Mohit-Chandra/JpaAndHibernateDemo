@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 import java.util.List;
 
 @Repository
@@ -16,6 +17,7 @@ import java.util.List;
 public class EmployeeRepo {
     @Autowired
     EntityManager entityManager;
+
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
