@@ -1,6 +1,7 @@
 package com.mohit.jpa.JpaAndHibDemo.com.mohit.jpa.JpaAndHibDemo.Entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -12,8 +13,7 @@ import java.util.List;
 @Entity
 @Table(name="Course")
 @NamedQuery(name="get_all_courses",query="Select c from Course c")
-
-
+@Cacheable
 public class Course {
 
     @Id
@@ -49,6 +49,7 @@ public class Course {
     }
 
     @ManyToMany(mappedBy="arrCourse")
+    @JsonIgnore
     private List<Student> arrStudent = new ArrayList<Student>();
 
     public List<Review> getReviews() {

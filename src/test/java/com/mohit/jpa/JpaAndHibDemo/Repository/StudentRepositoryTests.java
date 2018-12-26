@@ -52,7 +52,7 @@ public class StudentRepositoryTests {
     public void retrieveStudentAndCourses() {
         Student student = entityManager.find(Student.class, 20001L);
         logger.info("Student--{}", student);
-        logger.info("Courses---{}", student.getArrCourse());
+       // logger.info("Courses---{}", student.getArrCourse());
     }
 
 

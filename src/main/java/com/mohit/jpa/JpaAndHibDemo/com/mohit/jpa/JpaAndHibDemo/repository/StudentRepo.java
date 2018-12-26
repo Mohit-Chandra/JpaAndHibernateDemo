@@ -46,8 +46,9 @@ public class StudentRepo {
         Student student = new Student("Mike");
         student.setPassport(passport);
         entityManager.persist(student);
-
     }
+
+
 
     public void insertStudentAndCourse(Student student, Course course) {
        /* Student student = new Student("Shashank");

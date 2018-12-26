@@ -38,6 +38,7 @@ public class CourseRepositoryTests {
 	}
 
 	@Test
+	@DirtiesContext
 	@Transactional
 	public void findByIdTest_First_Level_Cache() {
 		Course course1 = courseRepo.findById(10002L);
@@ -49,7 +50,7 @@ public class CourseRepositoryTests {
 	}
 
 	@Test
-	@DirtiesContext// it will restore the store as it was at start so that findbyIdTest can run
+	@DirtiesContext// it will restore the state as it was at start so that findbyIdTest can run
 	public void deleteByIdTest() {
 		courseRepo.deleteById(10002L);
 		assertNull(courseRepo.findById(10002L));

@@ -22,8 +22,8 @@ public class Student {
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "STUDENT_COURSE"
-            , joinColumns = @JoinColumn(name = "Student_ID"),
-            inverseJoinColumns = @JoinColumn(name = "Course_ID"))
+            , joinColumns = @JoinColumn(name = "Student_id"),
+            inverseJoinColumns = @JoinColumn(name = "Course_id"))
     private List<Course> arrCourse = new ArrayList<Course>();
 
     public List<Course> getArrCourse() {

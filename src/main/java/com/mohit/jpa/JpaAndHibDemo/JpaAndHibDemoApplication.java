@@ -43,11 +43,11 @@ public class JpaAndHibDemoApplication implements CommandLineRunner {
 		reviewList.add(review1);
 		reviewList.add(review2);
 		courseRepo.addReviewForCourse(10003L,reviewList);*/
-	//	studentRepo.insertStudentAndCourse(new Student("Shashra"),new Course("Webservices"));
-		employeeRepo.insert(new PartTimeEmployee("Shashra",new BigDecimal("50")));
+		studentRepo.insertStudentAndCourse(new Student("Shashra"),new Course("Webservices"));
+		/*employeeRepo.insert(new PartTimeEmployee("Shashra",new BigDecimal("50")));
 		employeeRepo.insert(new FullTimeEmployee("Shashra",new BigDecimal("1000")));
 
-		logger.info("All employees:{}",employeeRepo.getAllEmployees());
+		logger.info("All employees:{}",employeeRepo.getAllEmployees());*/
 
 	}
 }
